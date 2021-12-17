@@ -1,0 +1,162 @@
+<?php
+require('dbconn.php');
+?>
+
+<?php 
+if ($_SESSION['Username']) {
+    ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JMTM Repository</title>
+        <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link type="text/css" href="css/theme.css" rel="stylesheet">
+        <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+        <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
+        <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
+            rel='stylesheet'>
+    </head>
+    <body>
+    <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner" style="background-color: #001f44;">
+                <div class="container" style="background-color: #001f44;">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                        <i class="icon-reorder shaded"></i></a><a class="brand" href="index.php" style="color: #fff;">JMTM Repository </a>
+                    <div class="nav-collapse collapse navbar-inverse-collapse">
+                        <ul class="nav pull-right">
+                            <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="images/user.png" class="nav-avatar" />
+                                <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="index.php">Your Profile</a></li>
+                                    <!--li><a href="#">Edit Profile</a></li>
+                                    <li><a href="#">Account Settings</a></li-->
+                                    <li class="divider"></li>
+                                    <li><a href="logout.php">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.nav-collapse -->
+                </div>
+            </div>
+            <!-- /navbar-inner -->
+        </div>
+        <!-- /navbar -->
+        <div class="wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="span3">
+                        <div class="sidebar">
+                            <ul class="widget widget-menu unstyled">
+                                <li class="active"><a href="index.php"style="background-color: #001f44;"><i class="menu-icon icon-home"></i>Home
+                                </a></li>
+                                 <li><a href="message.php"style="background-color: #001f44;"><i class="menu-icon icon-inbox"></i>Messages</a>
+                                </li>
+                                <li><a href="book.php"style="background-color: #001f44;"><i class="menu-icon icon-book"></i>All Books </a></li>
+                                <li><a href="history.php"style="background-color: #001f44;"><i class="menu-icon icon-tasks"></i>Previously Borrowed Books </a></li>
+                                <li><a href="current.php"style="background-color: #001f44;"><i class="menu-icon icon-list"></i>Currently Issued Books </a></li>
+                            </ul>
+                            <ul class="widget widget-menu unstyled">
+                                <li><a href="logout.php"style="background-color: #fdbe33;"><i class="menu-icon icon-signout"></i>Logout </a></li>
+                            </ul>
+                        </div>
+                        <!--/.sidebar-->
+                    </div>
+                    <!--/.span3-->
+                    
+                    <div class="span9">
+                        <div class="content">
+
+                        <div class="module">
+                            <div class="module-head">
+                                <h3>Book Details</h3>
+                            </div>
+                            <div class="module-body">
+                        <?php
+                            $x=$_GET['id'];
+                            $sql="select * from repo.buku where KodePelaksana='$x'";
+                            $result=$conn->query($sql);
+                            $row=$result->fetch_assoc();    
+                            
+                            $kode=$row['KodePelaksana'];
+                            $perihal=$row['Perihal'];
+                            $indeks=$row['Indeks'];
+                            $klasifikasi=$row['Klasifikasi'];
+                            $lokasi=$row['Lokasi'];
+                            $avail=$row['Jumlah'];
+                            $unit=$row['Unit'];
+                            $thn=$row['Tahun'];
+                            $tp=$row['TingkatPerkembangan'];
+                            $media=$row['Media'];
+                            $kondisi=$row['Kondisi'];
+                            $fd=$row['file_name'];
+                            $r=$row['Retensi'];
+                            $ar=$row['ARetensi'];
+                            $tgl=$row['TglDesk'];
+                            $file=$row['file_name'];
+
+
+                            echo "<b>Kode Pelaksana:</b> ".$kode."<br><br>";
+                            echo "<b>Indeks:</b> ".$indeks."<br><br>";
+                            echo "<b>Klasifikasi:</b> ".$klasifikasi."<br><br>";
+                            echo "<b>Unit Kerja:</b> ".$unit."<br><br>";
+                            echo "<b>Perihal:</b> ".$perihal."<br><br>";
+                            echo "<b>Tahun:</b> ".$thn."<br><br>";
+                            echo "<b>Tingkat Perkembangan:</b> ".$tp."<br><br>";
+                            echo "<b>Media:</b> ".$media."<br><br>";
+                            echo "<b>Kondisi:</b> ".$kondisi."<br><br>";
+                            echo "<b>Lokasi:</b> ".$lokasi."<br><br>";
+                            echo "<b>Jumlah:</b> ".$avail."<br><br>";
+                            echo "<b>Retensi:</b> ".$r."<br><br>";
+                            echo "<b>Akhir Retensi:</b> ".$ar."<br><br>";
+                            echo "<b>Tanggal Deskripsi:</b> ".$tgl."<br><br>";
+                            echo "<b>File PDF:</b> ".$fd."<br><br>";
+                           
+                            ?>
+                            
+                        <a href="book.php" class="btn btn-danger">Go Back</a>                             
+                               </div>
+                           </div>
+                            </div>
+                    <!--/.span3-->
+                    <!--/.span9-->
+                
+                    <!--/.span3-->
+                    <!--/.span9-->
+                </div>
+                    
+                    <!--/.span9-->
+                </div>
+                    <!--/.span9-->
+                </div>
+            </div>
+            <!--/.container-->
+            <div class="footer"style="background-color: #001f44;">
+            <div class="container">
+                <b class="copyright">&copy; 2021 PT Jasamarga Tollroad Maintenance </b>All rights reserved.
+            </div>
+        </div>
+        
+        <!--/.wrapper-->
+        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
+        <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
+        <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
+        <script src="scripts/common.js" type="text/javascript"></script>
+      
+    </body>
+
+</html>
+
+<?php }
+else {
+    echo "<script type='text/javascript'>alert('Access Denied!!!')</script>";
+} ?>
