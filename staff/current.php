@@ -126,6 +126,7 @@ if ($_SESSION['Username']) {
                                 $klasifikasi=$row['Klasifikasi'];
                                 $issuedate=$row['Date_of_Issue'];
                                 $duedate=$row['Due_Date'];
+                                $filename = $row['file_name'];
                             
                             ?>
 
@@ -137,7 +138,7 @@ if ($_SESSION['Username']) {
                                       <td><?php echo $issuedate ?></td>
                                       <td><?php echo $duedate ?></td>
                                         <td><center>
-                                        <a href="../admin/uploads?id=<?php echo $bookid; ?>" class="btn btn-success">Download</a>
+                                        <a href="../admin/<?php echo $filename; ?>" class="btn btn-success">Download</a>
                                         
                                         <a href="return_request.php?id=<?php echo $bookid; ?>" class="btn btn-primary">Return</a>
                                         </center></td>

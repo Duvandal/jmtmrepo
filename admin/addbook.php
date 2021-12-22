@@ -1,5 +1,4 @@
 <?php
-ob_start();
 require('dbconn.php');
 ?>
 
@@ -17,7 +16,6 @@ if ($_SESSION['Username']) {
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link type="text/css" href="css/theme.css" rel="stylesheet">
-        <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
         <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
             rel='stylesheet'>
@@ -72,178 +70,137 @@ if ($_SESSION['Username']) {
                         <!--/.sidebar-->
                     </div>
                     <!--/.span3-->
-                    
+                    <!--/.span9-->
                     <div class="span9">
+                    <div class="content">
+
                         <div class="module">
                             <div class="module-head">
-                                <h3>Update Book Details</h3>
+                                <h3>Add Book</h3>
                             </div>
                             <div class="module-body">
 
-                                <?php
-                                    $bookid = $_GET['id'];
-                                    $sql = "select * from repo.buku where KodePelaksana='$bookid'";
-                                    $result=$conn->query($sql);
-                                    $row=$result->fetch_assoc();
-                                    $kode=$row['KodePelaksana'];
-                                    $perihal=$row['Perihal'];
-                                    $indeks=$row['Indeks'];
-                                    $klasifikasi=$row['Klasifikasi'];
-                                    $lokasi=$row['Lokasi'];
-                                    $avail=$row['Jumlah'];
-                                    $unit=$row['Unit'];
-                                    $thn=$row['Tahun'];
-                                    $tp=$row['TingkatPerkembangan'];
-                                    $media=$row['Media'];
-                                    $kondisi=$row['Kondisi'];
-                                    $fd=$row['file_name'];
-                                    $r=$row['Retensi'];
-                                    $ar=$row['ARetensi'];
-                                    $tgl=$row['TglDesk'];
-                                    $files=$row['file_name'];
+                                    
+                                    <br >
 
-                                ?>
-                                <form class="form-horizontal row-fluid" action="edit_book_details.php?id=<?php echo $bookid ?>" method="post" enctype="multipart/form-data">
-                                    <div class="control-group">
-                                            <b>
-                                            <label class="control-label" for="Kode">Kode Pelaksana:</label></b>
-                                            <div class="controls">
-                                                <input type="text" id="Kode" name="Kode" value= "<?php echo $kode?>" class="span8" required>
-                                            </div>
-                                        </div>
-
+                                    <form class="form-horizontal row-fluid" action="addbook.php" method="post" enctype="multipart/form-data">
                                         <div class="control-group">
-                                            <b>
-                                            <label class="control-label" for="Indeks">Indeks:</label></b>
+                                            <label class="control-label" for="Kode"><b>Kode Pelaksana</b></label>
                                             <div class="controls">
-                                                <input type="text" id="Indeks" name="Indeks" value= "<?php echo $indeks?>" class="span8" required>
+                                                <input type="text" id="Kode" name="Kode" placeholder="Kode Pelaksana" class="span8" required>
                                             </div>
                                         </div>
-
                                         <div class="control-group">
-                                            <b>
-                                            <label class="control-label" for="Klasifikasi">Klasifikasi:</label></b>
-                                            <div class="controls">
-                                                <input type="text" id="Klasifikasi" name="Klasifikasi" value= "<?php echo $klasifikasi?>" class="span8" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="control-group">
-                                            <b>
-                                            <label class="control-label" for="Unit">Unit Kerja:</label></b>
-                                            <div class="controls">
-                                                <input type="text" id="Unit" name="Unit" value= "<?php echo $unit?>" class="span8" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="control-group">
-                                            <b>
-                                            <label class="control-label" for="Perihal">Perihal:</label></b>
-                                            <div class="controls">
-                                                <input type="text" id="Perihal" name="Perihal" value= "<?php echo $perihal?>" class="span8" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="control-group">
-                                            <b>
-                                            <label class="control-label" for="Tahun">Tahun:</label></b>
-                                            <div class="controls">
-                                                <input type="text" id="Tahun" name="Tahun" value= "<?php echo $thn?>" class="span8" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="control-group">
-                                            <b>
-                                            <label class="control-label" for="TP">Tingkat Perkembangan:</label></b>
-                                            <div class="controls">
-                                                <input type="text" id="TP" name="TP" value= "<?php echo $tp?>" class="span8" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="control-group">
-                                            <b>
-                                            <label class="control-label" for="Media">Media:</label></b>
-                                            <div class="controls">
-                                                <input type="text" id="Media" name="Media" value= "<?php echo $media?>" class="span8" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="control-group">
-                                            <b>
-                                            <label class="control-label" for="Kondisi">Kondisi:</label></b>
-                                            <div class="controls">
-                                                <input type="text" id="Kondisi" name="Kondisi" value= "<?php echo $kondisi?>" class="span8" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="control-group">
-                                            <b>
-                                            <label class="control-label" for="Lokasi">Lokasi:</label></b>
-                                            <div class="controls">
-                                                <input type="text" id="Lokasi" name="Lokasi" value= "<?php echo $lokasi?>" class="span8" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="control-group">
-                                            <b>
-                                            <label class="control-label" for="Jumlah">Jumlah:</label></b>
-                                            <div class="controls">
-                                                <input type="text" id="Jumlah" name="Jumlah" value= "<?php echo $avail?>" class="span8" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="control-group">
-                                            <b>
-                                            <label class="control-label" for="Retensi">Retensi:</label></b>
-                                            <div class="controls">
-                                                <input type="text" id="Retensi" name="Retensi" value= "<?php echo $r?>" class="span8" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="control-group">
-                                            <b>
-                                            <label class="control-label" for="ARetensi">Akhir Retensi:</label></b>
-                                            <div class="controls">
-                                                <input type="text" id="ARetensi" name="ARetensi" value= "<?php echo $ar?>" class="span8" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="control-group">
-                                            <b>
-                                            <label class="control-label" for="tgl">Tanggal Deskripsi:</label></b>
-                                            <div class="controls">
-                                                <input type="text" id="tgl" name="tgl" value= "<?php echo $tgl?>" class="span8" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="control-group">
-                                            <b>
-                                            <label class="control-label" for="myfile">File PDF:</label></b>
-                                            <div class="controls">
-                                                <input class="form-control" type="file" name="myfile" id="formFile">
-                                            </div>
-                                        </div>
-
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <button type="submit" name="submit"class="btn">Update Details</button>
-                                            </div>
-                                        </div>
-
-                                    </form>
-                                    <a href="book.php" class="btn btn-danger">Go Back</a>    
                                             
-                                                            
-                                    </div>   
-                                    </div>          
-                    </div>
-                    
-                    <!--/.span9-->
+                                            <label class="control-label" for="Indeks"><b>Indeks</b></label>
+                                            <div class="controls">
+                                                <input type="text" id="Indeks" name="Indeks" placeholder="Indeks" class="span8" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                            
+                                            <label class="control-label" for="Klasifikasi"><b>Klasifikasi</b></label>
+                                            <div class="controls">
+                                                <input type="text" id="Klasifikasi" name="Klasifikasi" placeholder="Klasifikasi" class="span8" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="Unit"><b>Unit Kerja</b></label>
+                                            <div class="controls">
+                                                <input type="text" id="Unit" name="Unit" placeholder="Unit Kerja" class="span8" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="Uraian"><b>Uraian</b></label>
+                                            <div class="controls">
+                                                <input type="text" id="Uraian" name="Uraian" placeholder="Uraian" class="span8" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="Tahun"><b>Tahun</b></label>
+                                            <div class="controls">
+                                                <input type="text" id="Tahun" name="Tahun" placeholder="Tahun" class="span8" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="Tp"><b>Tingkat Perkembangan</b></label>
+                                            <div class="controls">
+                                                <input type="text" id="Tp" name="Tp" placeholder="Tingkat Perkembangan" class="span8" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="Media"><b>Media</b></label>
+                                            <div class="controls">
+                                                <input type="text" id="Media" name="Media" placeholder="Media" class="span8" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="Kondisi"><b>Kondisi</b></label>
+                                            <div class="controls">
+                                                <input type="text" id="Kondisi" name="Kondisi" placeholder="Kondisi" class="span8" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="Jumlah"><b>Jumlah</b></label>
+                                            <div class="controls">
+                                                <input type="text" id="Jumlah" name="Jumlah" placeholder="Jumlah" class="span8" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="Lokasi"><b>Lokasi</b></label>
+                                            <div class="controls">
+                                                <input type="text" id="Lokasi" name="Lokasi" placeholder="Lokasi" class="span8" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="myfile"><b>File Buku</b></label>
+                                            <div class="controls">
+                                                <input type="file" name="myfile" id="myfile" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="Retensi"><b>Retensi</b></label>
+                                            <div class="controls">
+                                                <input type="text" id="Retensi" name="Retensi" placeholder="Retensi" class="span8" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="ARetensi"><b>Akhir Retensi</b></label>
+                                            <div class="controls">
+                                                <input type="text" id="ARetensi" name="ARetensi" placeholder="Akhir Retensi" class="span8" required>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="Tgl"><b>Tanggal Deskripsi</b></label>
+                                            <div class="controls">
+                                                <input type="text" id="Tgl" name="Tgl" placeholder="Tanggal Deskripsi" class="span8" required>
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class="control-group">
+                                            <div class="controls">
+                                                <button type="submit" name="submit" class="btn">Add Book</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                            </div>
+                        </div>
+
+                        
+                        
+                    </div><!--/.content-->
+                </div>
+
                 </div>
             </div>
             <!--/.container-->
+
         </div>
-        <div class="footer"style="background-color: #001f44;">
+
+
+<div class="footer">
             <div class="container">
                 <b class="copyright">&copy; 2021 PT Jasamarga Tollroad Maintenance </b>All rights reserved.
             </div>
@@ -259,66 +216,72 @@ if ($_SESSION['Username']) {
         <script src="scripts/common.js" type="text/javascript"></script>
 
 <?php
-if(isset($_POST['submit']))
-{
-    $bookid = $_GET['id'];
-    $kode=$_POST['Kode'];
-    $perihal=$_POST['Perihal'];
-    $indeks=$_POST['Indeks'];
-    $klasifikasi=$_POST['Klasifikasi'];
-    $lokasi=$_POST['Lokasi'];
-    $avail=$_POST['Jumlah'];
-    $unit=$_POST['Unit'];
-    $thn=$_POST['Tahun'];
-    $tp=$_POST['TP'];
-    $media=$_POST['Media'];
-    $kondisi=$_POST['Kondisi'];
-    $fd=$_POST['file_name'];
-    $r=$_POST['Retensi'];
-    $ar=$_POST['ARetensi'];
-    $tgl=$_POST['tgl'];
-    $target_dir = "uploads/";
-    $target_file = $target_dir . basename($_FILES["myfile"]["name"]);
-    $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    $uploadOk = 1;
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SESSION['Username']) {
+            
+            
+            if(isset($_POST['submit']))
+            {
+                $bookid = $_GET['id'];
+                $kode=$_POST['Kode'];
+                $perihal=$_POST['Uraian'];
+                $indeks=$_POST['Indeks'];
+                $klasifikasi=$_POST['Klasifikasi'];
+                $lokasi=$_POST['Lokasi'];
+                $avail=$_POST['Jumlah'];
+                $unit=$_POST['Unit'];
+                $thn=$_POST['Tahun'];
+                $tp=$_POST['Tp'];
+                $media=$_POST['Media'];
+                $kondisi=$_POST['Kondisi'];
+                $fd=$_POST['file_name'];
+                $r=$_POST['Retensi'];
+                $ar=$_POST['ARetensi'];
+                $tgl=$_POST['Tgl'];
 
-    // Check if file already exists
-    if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
-        $uploadOk = 0;
-    }
-    if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
-        // if everything is ok, try to upload file
-    } 
-    // Check if $uploadOk is set to 0 by an error
-    else {
-        if (move_uploaded_file($_FILES["myfile"]["tmp_name"], $target_file)) {
-            echo "The file ". htmlspecialchars( basename( $_FILES["myfile"]["name"])) . " has been uploaded.";
-        } 
-        else {
-            echo "Sorry, there was an error uploading your file.";
+                $target_dir = "uploads/";
+                $target_file = $target_dir . basename($_FILES["myfile"]["name"]);
+                $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                $uploadOk = 1;
+
+                // Check if file already exists
+                if (file_exists($target_file)) {
+                    echo "Sorry, file already exists.";
+                    $uploadOk = 0;
+                }
+                if ($uploadOk == 0) {
+                    echo "Sorry, your file was not uploaded.";
+                    // if everything is ok, try to upload file
+                } 
+                // Check if $uploadOk is set to 0 by an error
+                else {
+                    if (move_uploaded_file($_FILES["myfile"]["tmp_name"], $target_file)) {
+                        echo "The file ". htmlspecialchars( basename( $_FILES["myfile"]["name"])) . " has been uploaded.";
+                    } 
+                    else {
+                        echo "Sorry, there was an error uploading your file.";
+                    }
+                }
+                $sql1="insert into repo.buku (KodePelaksana,Indeks,Klasifikasi,Unit,Perihal,Tahun,TingkatPerkembangan,Media,Kondisi,Jumlah,Lokasi,file_name,Retensi,ARetensi,TglDesk) 
+                values ('$kode','$indeks','$klasifikasi','$unit','$perihal','$thn','$tp','$media','$kondisi','$jumlah','$lokasi','". basename( $_FILES["myfile"]["name"]) ."','$r','$ar','$tgl')";
+                if($conn->query($sql1) === TRUE && $uploadOk == 1){
+                    echo "<script type='text/javascript'>alert('Success')</script>";
+                    // header("Location: ./addbook.php");
+                }
+                else{//echo $conn->error;
+                    echo "<script type='text/javascript'>alert('Error')</script>";
+                    // header("Location: ./addbook.php");
+                }
+            }
         }
     }
-    $sql1="update repo.buku set KodePelaksana='$kode',Indeks='$indeks',Klasifikasi='$klasifikasi', Unit='$unit', Perihal='$perihal', Tahun='$thn', 
-    TingkatPerkembangan='$tp', Media='$media', Kondisi='$kondisi', Jumlah='$avail', Lokasi='$lokasi', Retensi='$r', ARetensi='$ar', TglDesk='$tgl', file_name='$target_file' where KodePelaksana='$bookid'";
-if($conn->query($sql1) === TRUE){
-echo "<script type='text/javascript'>alert('Success')</script>";
-header( "Refresh:0.01; url=book.php", true, 303);
-}
-else
-{//echo $conn->error;
-echo "<script type='text/javascript'>alert('Error')</script>";
-}
-}
+    ?>
+        </body>
+
+    </html>
+
+    <?php }
+    else {
+        echo "<script type='text/javascript'>alert('Access Denied!!!')</script>";
+    } 
 ?>
-      
-    </body>
-
-</html>
-
-
-<?php }
-else {
-    echo "<script type='text/javascript'>alert('Access Denied!!!')</script>";
-} ?>
