@@ -66,37 +66,62 @@ require('dbconn.php');
                         <!--/.sidebar-->
                     </div>
                     <!--/.span3-->
-                    <div class="span9" >
-                        <center>
-                            <div class="card" style="width: 50%;"> 
-                                <div class="card-body">
+                    <div class="span9">
+                        <?php
+                        if(isset($_POST['submit']))
+                            {$s=$_POST['Judul'];
+                                $sql="select * from repo.buku where Indeks='$s' or Perihal like '%$s%' or Tahun like '%$s%' 
+                                or Lokasi like '%$s%' or KodePelaksana like '%$s%' or Unit like '%$s%'";
+                            }
+                        else
+                            $sql="select * from repo.buku";
 
-                                <?php
-                                $username = $_SESSION['Username'];
-                                $sql="select * from repo.user where Username='$username'";
-                                $result=$conn->query($sql);
-                                $row=$result->fetch_assoc();
+                        $result=$conn->query($sql);
+                        $rowcount=mysqli_num_rows($result);
 
-                                $name=$row['Name'];
-                                $category=$row['Category'];
-                                $divisi=$row['Divisi']
-                                ?>    
-                                    <i>
-                                    <h1 class="card-title"><center><?php echo $name ?></center></h1>
-                                    <br>
-                                    <p><b>Nama: </b><?php echo $name ?></p>
-                                    <br>
-                                    <p><b>Divisi: </b><?php echo $divisi ?></p>
-                                    <br>
-                                    <p><b>Kategori: </b><?php echo $category ?></p>
-                                    </b>
-                                </i>
-
-                                </div>
-                            </div>
-                        <br>
-                            <a href="edit_staff_details.php" class="btn btn-primary">Edit Details</a>    
-      					</center>              	
+                        if(!($rowcount))
+                            echo "<br><center><h2><b><i>No Results</i></b></h2></center>";
+                        else
+                        {
+                        ?>
+                        <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th>Kode Pelaksana</th>
+                                <th>Indeks</th>
+                                <th>Unit Kerja</th>
+                                <th>Tahun</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            
+                            //$result=$conn->query($sql);
+                            while($row=$result->fetch_assoc())
+                            {
+                                $kode=$row['KodePelaksana'];
+                                $indeks=$row['Indeks'];
+                                $unit=$row['Unit'];
+                                $thn=$row['Tahun'];
+                            
+                            ?>
+                                <tr>
+                                    <td><?php echo $kode ?></td>
+                                    <td><?php echo $indeks ?></td>
+                                    <td><?php echo $unit ?></td>
+                                    <td><?php echo $thn ?></td>
+                                </tr>
+                                <?php }} ?>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th>Kode Pelaksana</th>
+                                <th>Indeks</th>
+                                <th>Unit Kerja</th>
+                                <th>Tahun</th>
+                            </tr>
+                            </tfoot>
+                        </table>
                     </div>
                     
                     <!--/.span9-->
