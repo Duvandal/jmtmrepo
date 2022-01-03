@@ -14,11 +14,16 @@ if ($_SESSION['Username']) {
         <title>JMTM Repository</title>
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" rel="stylesheet">
         <link type="text/css" href="css/theme.css" rel="stylesheet">
         <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
         <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
-        <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
-            rel='stylesheet'>
+        <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
+        <link type="text/css" rel="stylesheet" href="https://code.jquery.com/jquery-3.5.1.js">
+        <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js">
+        <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js">
+
+
     </head>
     <body>
         <div class="navbar navbar-fixed-top">
@@ -71,16 +76,6 @@ if ($_SESSION['Username']) {
                     </div>
 
                     <div class="span9">
-                        <form class="form-horizontal row-fluid" action="book.php" method="post">
-                            <div class="control-group">
-                                <label class="control-label" for="Search"><b>Search:</b></label>
-                                <div class="controls">
-                                    <input type="text" id="Judul" name="Judul" placeholder="Masukkan yang ingin dicari" class="span8" required>
-                                    <button type="submit" name="submit"class="btn">Search</button>
-                                </div>
-                            </div>
-                        </form>
-                        <br>
                         <?php
                         if(isset($_POST['submit']))
                             {$s=$_POST['Judul'];
@@ -98,7 +93,7 @@ if ($_SESSION['Username']) {
                         else
                         {
                         ?>
-                        <table class="table" id = "tables">
+                        <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%;">
                             <thead>
                             <tr>
                                 <th>Kode Pelaksana</th>
@@ -109,7 +104,7 @@ if ($_SESSION['Username']) {
                                 <th>Tahun</th>
                                 <th>Lokasi</th>
                                 <th>Jumlah</th>
-                                <th></th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -144,13 +139,13 @@ if ($_SESSION['Username']) {
                                     <td><?php echo $thn ?></td>
                                     <td><?php echo $lokasi ?></td>
                                     <td><b><?php echo $avail ?></b></td>
-                                    <td><center>
+                                    <td>
                                         <a href="bookdetails.php?id=<?php echo $kode; ?>" class="btn btn-primary">Details</a>
-                                        
-                                    </center></td>
+                                    </td>
                                 </tr>
                                 <?php }} ?>
                             </tbody>
+                            
                         </table>
                     </div>
                     <!--/.span9-->

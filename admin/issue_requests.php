@@ -79,7 +79,7 @@ if ($_SESSION['Username']) {
                         <table class="table" id = "tables">
                                   <thead>
                                     <tr>
-                                      <th>Peminjam</th>
+                                      <th>Izin Pinjam</th>
                                       <th>Kode Pelaksana</th>
                                       <th>Uraian</th>
                                       <th>Tahun</th>

@@ -263,8 +263,8 @@ if ($_SESSION['Username']) {
                     }
                 }
                 $sql1="insert into repo.buku (KodePelaksana,Indeks,Klasifikasi,Unit,Perihal,Tahun,TingkatPerkembangan,Media,Kondisi,Jumlah,Lokasi,file_name,Retensi,ARetensi,TglDesk) 
-                values ('$kode','$indeks','$klasifikasi','$unit','$perihal','$thn','$tp','$media','$kondisi','$jumlah','$lokasi','". basename( $_FILES["myfile"]["name"]) ."','$r','$ar','$tgl')";
-                if($conn->query($sql1) === TRUE && $uploadOk == 1){
+                values ('$kode','$indeks','$klasifikasi','$unit','$perihal','$thn','$tp','$media','$kondisi','$avail','$lokasi','". basename( $_FILES["myfile"]["name"]) ."','$r','$ar','$tgl')";
+                if($conn->query($sql1) === TRUE){
                     echo "<script type='text/javascript'>alert('Success')</script>";
                     // header("Location: ./addbook.php");
                 }
