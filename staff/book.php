@@ -10,7 +10,7 @@ if ($_SESSION['Username']) {
 <html lang="en">
 
     <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>JMTM Repository</title>
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -20,9 +20,6 @@ if ($_SESSION['Username']) {
         <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
         <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
-        <link type="text/css" rel="stylesheet" href="https://code.jquery.com/jquery-3.5.1.js">
-        <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js">
-        <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js">
     </head>
     <body>
     <div class="navbar navbar-fixed-top">

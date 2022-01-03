@@ -19,9 +19,6 @@ if ($_SESSION['Username']) {
         <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
         <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
-        <link type="text/css" rel="stylesheet" href="https://code.jquery.com/jquery-3.5.1.js">
-        <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js">
-        <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js">
 
 
     </head>
@@ -93,7 +90,7 @@ if ($_SESSION['Username']) {
                         else
                         {
                         ?>
-                        <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%;">
+                        <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                             <tr>
                                 <th>Kode Pelaksana</th>
@@ -163,8 +160,6 @@ if ($_SESSION['Username']) {
         <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
         <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
         <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
         <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
         <script src="scripts/common.js" type="text/javascript"></script>
       
