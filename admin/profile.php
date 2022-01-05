@@ -3,6 +3,9 @@ ob_start();
 require('dbconn.php');
 ?>
 
+<?php 
+if ($_SESSION['Username']) {
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,8 +16,8 @@ require('dbconn.php');
         <title>JMTM Repository</title>
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link type="text/css" href="css/theme.css" rel="stylesheet">
         <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+        <link type="text/css" href="css/theme.css" rel="stylesheet">
         <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
             rel='stylesheet'>
@@ -31,7 +34,7 @@ require('dbconn.php');
                                 <img src="images/user.png" class="nav-avatar" />
                                 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="index.php">Your Profile</a></li>
+                                    <li><a href="profile.php">Your Profile</a></li>
                                     <!--li><a href="#">Edit Profile</a></li>
                                     <li><a href="#">Account Settings</a></li-->
                                     <li class="divider"></li>
@@ -52,12 +55,14 @@ require('dbconn.php');
                     <div class="span3">
                         <div class="sidebar">
                             <ul class="widget widget-menu unstyled">
-                                <li class="active"><a href="index.php"style="background-color: #001f44;"><i class="menu-icon icon-home"></i>Home
+                                <li class="active"><a href="index.php" style="background-color: #001f44;"><i class="menu-icon icon-home"></i>Home
                                 </a></li>
                                  <li><a href="message.php"style="background-color: #001f44;"><i class="menu-icon icon-inbox"></i>Messages</a>
                                 </li>
                                 <li><a href="book.php"style="background-color: #001f44;"><i class="menu-icon icon-book"></i>All Books </a></li>
-                                <li><a href="history.php"style="background-color: #001f44;"><i class="menu-icon icon-tasks"></i>Previously Borrowed Books </a></li>
+                                <li><a href="addbook.php"style="background-color: #001f44;"><i class="menu-icon icon-edit"></i>Add Books </a></li>
+                                <li><a href="excelupload.php"style="background-color: #001f44;"><i class="menu-icon icon-edit"></i>Excel Upload</a></li>
+                                <li><a href="requests.php"style="background-color: #001f44;"><i class="menu-icon icon-tasks"></i>Issue/Return Requests </a></li>
                                 <li><a href="current.php"style="background-color: #001f44;"><i class="menu-icon icon-list"></i>Currently Issued Books </a></li>
                             </ul>
                             <ul class="widget widget-menu unstyled">
@@ -67,58 +72,37 @@ require('dbconn.php');
                         <!--/.sidebar-->
                     </div>
                     <!--/.span3-->
+                    
                     <div class="span9">
-                        <div class="module">
-                            <div class="module-head">
-                                <h3>Update Details</h3>
-                            </div>
-                            <div class="module-body">
+                        <center>
+                            <div class="card" style="width: 50%;"> 
+                                <!-- <img class="card-img-top" src="images/profile2.png" alt="Card image cap"> -->
+                                <div class="card-body">
 
-
-                            <?php
+                                <?php
                                 $username = $_SESSION['Username'];
                                 $sql="select * from repo.user where Username='$username'";
                                 $result=$conn->query($sql);
                                 $row=$result->fetch_assoc();
 
                                 $name=$row['Name'];
-                                $pswd=$row['Password'];
                                 $divisi=$row['Divisi'];
-                                ?>     
-                    			
-                                <form class="form-horizontal row-fluid" action="edit_staff_details.php?id=<?php echo $user ?>" method="post">
+                                $category=$row['Category'];
+                                ?>    
+                                    <i>
+                                    <h1 class="card-title"><center><?php echo $name ?></center></h1>
+                                    <br>
+                                    <p><b>Divisi: </b><?php echo $divisi ?></p>
+                                    <br>
+                                    <p><b>Category: </b><?php echo $category ?></p>
+                                    </b>
+                                </i>
 
-                                    <div class="control-group">
-                                        <label class="control-label" for="Name"><b>Name:</b></label>
-                                        <div class="controls">
-                                            <input type="text" id="Name" name="Name" value= "<?php echo $name?>" class="span8" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="control-group">
-                                        <label class="control-label" for="Password"><b>New Password:</b></label>
-                                        <div class="controls">
-                                            <input type="password" id="Password" name="Password"  value= "<?php echo $pswd?>" class="span8" required>
-                                        </div>
-                                    </div>  
-
-                                    <div class="control-group">
-                                        <label class="control-label" for="Divisi"><b>Divisi:</b></label>
-                                        <div class="controls">
-                                            <input type="text" id="Divisi" name="Divisi"  value= "<?php echo $divisi?>" class="span8" required>
-                                        </div>
-                                    </div>  
-                                    
-                                    <div class="control-group">
-                                            <div class="controls">
-                                                <button type="submit" name="submit"class="btn-primary"><center>Update Details</center></button>
-                                            </div>
-                                        </div>                                                                     
-
-                                </form>
-                    		           
-                        </div>
-                        </div> 	
+                                </div>
+                            </div>
+                        <br>
+                        <a href="edit_admin_details.php" class="btn btn-primary">Edit Details</a>
+                        </center>               
                     </div>
                     
                     <!--/.span9-->
@@ -126,7 +110,7 @@ require('dbconn.php');
             </div>
             <!--/.container-->
         </div>
-        <div class="footer"style="background-color: #001f44;">
+<div class="footer">
             <div class="container">
                 <b class="copyright">&copy; 2021 PT Jasamarga Tollroad Maintenance </b>All rights reserved.
             </div>
@@ -144,12 +128,13 @@ require('dbconn.php');
 <?php
 if(isset($_POST['submit']))
 {
-    $user = $_GET['id'];
+    $rollno = $_GET['id'];
     $name=$_POST['Name'];
-    $pswd=$_POST['Password'];
     $divisi=$_POST['Divisi'];
+    $category=$_POST['Category'];
+    $pswd=$_POST['Password'];
 
-$sql1="update repo.user set Name='$name', Password='$pswd', Divisi='$divisi where Username='$username'";
+$sql1="update repo.user set Name='$name', Divisi='$divisi', Category='$category', Password='$pswd' where Username='$rollno'";
 
 
 
@@ -167,3 +152,9 @@ echo "<script type='text/javascript'>alert('Error')</script>";
     </body>
 
 </html>
+
+
+<?php }
+else {
+    echo "<script type='text/javascript'>alert('Access Denied!!!')</script>";
+} ?>

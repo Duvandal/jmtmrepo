@@ -89,6 +89,7 @@ if ($_SESSION['Username']) {
 
                                 $name=$row['Name'];
                                 $pswd=$row['Password'];
+                                $divisi=$row['Divisi'];
                                 ?>    
                                 
                                 <form class="form-horizontal row-fluid" action="edit_admin_details.php?id=<?php echo $username ?>" method="post">
@@ -104,6 +105,13 @@ if ($_SESSION['Username']) {
                                         <label class="control-label" for="Password"><b>New Password:</b></label>
                                         <div class="controls">
                                             <input type="password" id="Password" name="Password"  value= "<?php echo $pswd?>" class="span8" required>
+                                        </div>
+                                    </div>   
+
+                                    <div class="control-group">
+                                        <label class="control-label" for="Divisi"><b>Divisi:</b></label>
+                                        <div class="controls">
+                                            <input type="text" id="Divisi" name="Divisi"  value= "<?php echo $divisi?>" class="span8" required>
                                         </div>
                                     </div>   
 
@@ -145,8 +153,9 @@ if(isset($_POST['submit']))
     $user = $_GET['id'];
     $name=$_POST['Name'];
     $pswd=$_POST['Password'];
+    $divisi=$_POST['Divisi'];
 
-$sql1="update repo.user set Name='$name', Password='$pswd' where Username='$username'";
+$sql1="update repo.user set Name='$name', Password='$pswd', Divisi=$divisi where Username='$username'";
 
 
 

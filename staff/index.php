@@ -30,7 +30,7 @@ require('dbconn.php');
                                 <img src="images/user.png" class="nav-avatar" />
                                 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="index.php">Your Profile</a></li>
+                                    <li><a href="profile.php">Your Profile</a></li>
                                     <!--li><a href="#">Edit Profile</a></li>
                                     <li><a href="#">Account Settings</a></li-->
                                     <li class="divider"></li>
@@ -137,6 +137,7 @@ require('dbconn.php');
         
         <!--/.wrapper-->
         <script src="https://code.jquery.com/jquery-3.5.1.js" type="text/javascript"></script>
+        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
         <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
         <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>

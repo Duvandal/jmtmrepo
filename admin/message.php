@@ -87,13 +87,13 @@ if ($_SESSION['Username']) {
                                         <div class="control-group">
                                             <label class="control-label" for="Username"><b>Receiver:</b></label>
                                             <div class="controls">
-                                                <input type="text" id="Username" name="Username" placeholder="Username Penerima" class="span8" required>
+                                                <input type="text" id="Username" name="user" placeholder="Username Penerima" class="span8" required>
                                             </div>
                                         </div>
                                         <div class="control-group">
                                             <label class="control-label" for="Message"><b>Message:</b></label>
                                             <div class="controls">
-                                                <input type="text" id="Message" name="Message" placeholder="Enter Message" class="span8" required>
+                                                <input type="text" id="Message" name="msg" placeholder="Enter Message" class="span8" required>
                                             </div>
                                             <hr>
                                         <div class="control-group">
@@ -132,8 +132,8 @@ if ($_SESSION['Username']) {
 <?php
 if(isset($_POST['submit']))
 {
-    $username=$_POST['Username'];
-    $message=$_POST['Message'];
+    $username=$_POST['user'];
+    $message=$_POST['msg'];
 
 $sql1="insert into repo.message (Username,Msg,Date,Time) values ('$username','$message',curdate(),curtime())";
 
