@@ -33,7 +33,6 @@ require('dbconn.php');
 		
 	</div>
 	</nav>
-	<section class="h-100">
 		<div class="container h-100">
 			<div class="row justify-content-md-center h-100">
 				<div class="card-wrapper">
@@ -84,7 +83,6 @@ require('dbconn.php');
 				</div>
 			</div>
 		</div>
-	</section>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
