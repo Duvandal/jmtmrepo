@@ -11,12 +11,15 @@ require('dbconn.php');
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- Style -->
-	<link rel="stylesheet" href="style.css">
+	<!-- <link rel="stylesheet" href="style.css"> -->
+
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"> -->
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<title>JMTM Repository</title>
 </head>
 <body>
@@ -33,44 +36,65 @@ require('dbconn.php');
 		
 	</div>
 	</nav>
-
+<!-- 
 			<form action="index.php" class="form-signin text-center" method="post">
             <img class="mb-4" src="logo.png"alt="" width="120" height="60">
 			<h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
 			<div class="form-group">
-			<label for="Name" class="sr-only">Name</label>
-			<input type="text" id="Name" class="form-control" name="Name" placeholder="Name" required="" autofocus="">
+			
             </div>
 			<div class="form-group">
-			<label for="Username" class="sr-only">Username</label>
-			<input type="text" id="Username" class="form-control" name="Username" placeholder="Username" required="" autofocus="">
+			
             </div>
 			<div class="form-group">
-			<label for="inputPassword" class="sr-only">Password</label>
-			<input type="password" id="inputPassword" class="form-control" name="Password" placeholder="Password" required="">
+			
             </div>
 			<div class="form-group">
-				<select name="Divisi" id="Divisi">
-					<option value="FTA">Finance</option>
-					<option value="LOG">Logistik</option>
-					<option value="HCGA">Human Capital</option>
-				</select>
+				
             </div>
-			<div class="form-group">
-				<select name="Category" id="Category">
-					<option value="ADM">Admin</option>
-					<option value="ST">Staff</option>
-				</select>
-            </div>
+			
         
-			<button class="btn btn-lg btn-primary btn-block" name="signup" type="submit">Sign Up</button><br><div class="clear"></div>
-			<div class="d-flex align-items-center justify-content-center pb-4">
-				<p class="mb-0 me-2">Already have an account?</p>
-				<a href="index.php">Login here</a>
-			</div>
-			<p class="mt-5 mb-3 text-muted">&copy; 2021 PT Jasa Marga Tollroad Maintenance. All Rights Reserved</p>
-			</form>
-
+			
+			</form> -->
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="post">
+                            <h3 class="text-center">Login</h3>
+                            <div class="form-group">
+							<label for="Name" class="sr-only">Name</label>
+							<input type="text" id="Name" class="form-control" name="Name" placeholder="Name" required="" autofocus="">
+                            </div>
+                            <div class="form-group">
+							<label for="inputPassword" class="sr-only">Password</label>
+							<input type="password" id="inputPassword" class="form-control" name="Password" placeholder="Password" required="">
+                            </div>
+                            <div class="form-group">
+							<select name="Divisi" id="Divisi">
+								<option value="FTA">Finance</option>
+								<option value="LOG">Logistik</option>
+								<option value="HCGA">Human Capital</option>
+							</select>
+                            </div>
+							<div class="form-group">
+								<select name="Category" id="Category">
+									<option value="ADM">Admin</option>
+									<option value="ST">Staff</option>
+								</select>
+							</div>
+                            <button class="btn btn-lg btn-primary btn-block" name="signup" type="submit">Sign Up</button><br><div class="clear"></div>
+							<div class="d-flex align-items-center justify-content-center pb-4">
+								<p class="mb-0 me-2">Already have an account?</p>
+								<a href="index.php">Login here</a>
+							</div>
+							<p class="mt-5 mb-3 text-muted">&copy; 2021 PT Jasa Marga Tollroad Maintenance. All Rights Reserved</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
@@ -79,10 +103,10 @@ require('dbconn.php');
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
-   
+    -->
   </body>
 </html>
 
