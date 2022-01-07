@@ -47,8 +47,6 @@ if (isset($_POST['submit'])) {
             $ar=$sheetData[$i]['13'];
             $td=$sheetData[$i]['14'];
 
-            $date_explode=explode("/",$td);
-            $td = $date_explode['2']."-".$date_explode['0']."-".$date_explode['1'];
             $sql1 = "insert into buku(KodePelaksana,Indeks,Klasifikasi,Unit,Perihal,Tahun,TingkatPerkembangan,Media,Kondisi,Jumlah,Lokasi,file_name,Retensi,ARetensi,TglDesk) 
             values('$kp','$indeks','$kk','$uk','$prh','$thn','$tp','$m','$k','$j','$loc','$l','$r','$ar','$td')";
 
