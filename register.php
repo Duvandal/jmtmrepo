@@ -19,7 +19,7 @@ require('dbconn.php');
 
 	<title>JMTM Repository</title>
 </head>
-<body class="text-center">
+<body>
 	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #001f44;">
 		<a class="navbar-brand" href="#">
 			<!-- <img src="logo.png" width="100" height="30" class="d-inline-block align-top" alt=""> -->
@@ -34,7 +34,7 @@ require('dbconn.php');
 	</div>
 	</nav>
 
-			<form action="index.php" class="form-signin" method="post">
+			<form action="index.php" class="form-signin text-center" method="post">
             <img class="mb-4" src="logo.png"alt="" width="120" height="60">
 			<h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
 			<div class="form-group">
