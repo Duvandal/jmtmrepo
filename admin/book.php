@@ -75,7 +75,7 @@ if ($_SESSION['Username']) {
         <div class="wrapper">
             <div class="container">
                 <div class="row">
-                    <div class="span9">
+                    <div class="span9 mx-auto">
                         <?php
                         if(isset($_POST['submit']))
                             {$s=$_POST['Judul'];
