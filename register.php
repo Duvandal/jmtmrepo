@@ -34,7 +34,7 @@ require('dbconn.php');
 	</div>
 	</nav>
 
-			<form action="index.php" class="form-signin" method="post">
+		<form action="index.php" class="form" method="post">
             <img class="mb-4" src="logo.png"alt="" width="120" height="60">
 			<h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
             <label for="Name" class="sr-only">Name</label>
@@ -62,6 +62,7 @@ require('dbconn.php');
 				<a href="index.php">Login here</a>
 			</div>
 			<p class="mt-5 mb-3 text-muted">&copy; 2021 PT Jasa Marga Tollroad Maintenance. All Rights Reserved</p>
+		</form>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

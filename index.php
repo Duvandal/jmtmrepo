@@ -34,7 +34,7 @@ require('dbconn.php');
 	</div>
 	</nav>
 	
-		<form class="form-signin" action="index.php" method="post">
+		<form class="form" action="index.php" method="post">
 			<img class="mb-4" src="logo.png"alt="" width="120" height="60">
 			<h1 class="h3 mb-3 font-weight-normal">Sign In</h1>
 			<label for="Username" class="sr-only">Username</label>
