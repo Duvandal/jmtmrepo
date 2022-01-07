@@ -37,31 +37,39 @@ require('dbconn.php');
 			<form action="index.php" class="form-signin" method="post">
             <img class="mb-4" src="logo.png"alt="" width="120" height="60">
 			<h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
-            <label for="Name" class="sr-only">Name</label>
-			<input type="text" id="Name" class="form-control" name="Name" placeholder="Name" required="" autofocus=""><br>
-            <label for="Username" class="sr-only">Username</label>
-			<input type="text" id="Username" class="form-control" name="Username" placeholder="Username" required="" autofocus=""><br>
+			<div class="form-group">
+			<label for="Name" class="sr-only">Name</label>
+			<input type="text" id="Name" class="form-control" name="Name" placeholder="Name" required="" autofocus="">
+            </div>
+			<div class="form-group">
+			<label for="Username" class="sr-only">Username</label>
+			<input type="text" id="Username" class="form-control" name="Username" placeholder="Username" required="" autofocus="">
+            </div>
+			<div class="form-group">
 			<label for="inputPassword" class="sr-only">Password</label>
-			<input type="password" id="inputPassword" class="form-control" name="Password" placeholder="Password" required=""><br>
+			<input type="password" id="inputPassword" class="form-control" name="Password" placeholder="Password" required="">
+            </div>
+			<div class="form-group">
 				<select name="Divisi" id="Divisi">
 					<option value="FTA">Finance</option>
 					<option value="LOG">Logistik</option>
 					<option value="HCGA">Human Capital</option>
 				</select>
+            </div>
+			<div class="form-group">
 				<select name="Category" id="Category">
 					<option value="ADM">Admin</option>
 					<option value="ST">Staff</option>
 				</select>
-				<br>
-			
-			
-			<br>
+            </div>
+        
 			<button class="btn btn-lg btn-primary btn-block" name="signup" type="submit">Sign Up</button><br><div class="clear"></div>
 			<div class="d-flex align-items-center justify-content-center pb-4">
 				<p class="mb-0 me-2">Already have an account?</p>
 				<a href="index.php">Login here</a>
 			</div>
 			<p class="mt-5 mb-3 text-muted">&copy; 2021 PT Jasa Marga Tollroad Maintenance. All Rights Reserved</p>
+			</form>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
