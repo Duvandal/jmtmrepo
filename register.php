@@ -33,21 +33,35 @@ require('dbconn.php');
 		
 	</div>
 	</nav>
-	
-		<form class="form-signin" action="index.php" method="post">
-			<img class="mb-4" src="logo.png"alt="" width="120" height="60">
-			<h1 class="h3 mb-3 font-weight-normal">Sign In</h1>
-			<label for="Username" class="sr-only">Username</label>
+
+			<form action="index.php" class="form-signin" method="post">
+            <img class="mb-4" src="logo.png"alt="" width="120" height="60">
+			<h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
+            <label for="Name" class="sr-only">Name</label>
+			<input type="text" id="Name" class="form-control" name="Name" placeholder="Name" required="" autofocus=""><br>
+            <label for="Username" class="sr-only">Username</label>
 			<input type="text" id="Username" class="form-control" name="Username" placeholder="Username" required="" autofocus=""><br>
 			<label for="inputPassword" class="sr-only">Password</label>
 			<input type="password" id="inputPassword" class="form-control" name="Password" placeholder="Password" required=""><br>
-			<button class="btn btn-lg btn-primary btn-block" name="signin" type="submit">Sign in</button><br><div class="clear"></div>
+				<select name="Divisi" id="Divisi">
+					<option value="FTA">Finance</option>
+					<option value="LOG">Logistik</option>
+					<option value="HCGA">Human Capital</option>
+				</select>
+				<select name="Category" id="Category">
+					<option value="ADM">Admin</option>
+					<option value="ST">Staff</option>
+				</select>
+				<br>
+			
+			
+			<br>
+			<button class="btn btn-lg btn-primary btn-block" name="signup" type="submit">Sign Up</button><br><div class="clear"></div>
 			<div class="d-flex align-items-center justify-content-center pb-4">
-				<p class="mb-0 me-2">Don't have an account?</p>
-				<a href="register.php">Register here</a>
+				<p class="mb-0 me-2">Already have an account?</p>
+				<a href="index.php">Login here</a>
 			</div>
 			<p class="mt-5 mb-3 text-muted">&copy; 2021 PT Jasa Marga Tollroad Maintenance. All Rights Reserved</p>
-		</form>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -65,35 +79,6 @@ require('dbconn.php');
 </html>
 
 <?php
-if(isset($_POST['signin']))
-{$u=$_POST['Username'];
- $p=$_POST['Password'];
- $c=$_POST['Category'];
-
- $sql="select * from repo.user where Username='$u'";
-
- $result = $conn->query($sql);
-$row = $result->fetch_assoc();
-$x=$row['Password'];
-$y=$row['Category'];
-if(strcasecmp($x,$p)==0 && !empty($u) && !empty($p))
-  {//echo "Login Successful";
-   $_SESSION['Username']=$u;
-   
-
-  if($y=='ADM')
-   header('location:admin/index.php');
-  else
-  	header('location:staff/index.php');
-        
-  }
-else 
- { echo "<script type='text/javascript'>alert('Failed to Login! Incorrect Username or Password')</script>";
-}
-   
-
-}
-
 if(isset($_POST['signup']))
 {
 	$name=$_POST['Name'];

@@ -9,189 +9,147 @@ if ($_SESSION['Username']) {
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>JMTM Repository</title>
-        <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link type="text/css" href="css/theme.css" rel="stylesheet">
-        <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
-        <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
-        <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
-            rel='stylesheet'>
-    </head>
-    <body>
-    <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner" style="background-color: #001f44;">
-                <div class="container" style="background-color: #001f44;">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                        <i class="icon-reorder shaded"></i></a><a class="brand" href="index.php" style="color: #fff;">JMTM Repository </a>
-                    <div class="nav-collapse collapse navbar-inverse-collapse">
-                        <ul class="nav pull-right">
-                            <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="images/user.png" class="nav-avatar" />
-                                <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="profile.php">Your Profile</a></li>
-                                    <!--li><a href="#">Edit Profile</a></li>
-                                    <li><a href="#">Account Settings</a></li-->
-                                    <li class="divider"></li>
-                                    <li><a href="logout.php">Logout</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.nav-collapse -->
-                </div>
-            </div>
-            <!-- /navbar-inner -->
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Asset -->
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+	<title>JMTM Repository</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #001f44;">
+        <a class="navbar-brand" href="index.php">JMTM Repository</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="index.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="message.php">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="book.php">All Book</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="addbook.php">Add Book <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="excelupload.php">Excel Upload</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="requests.php">Issue/Return Request</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="current.php">Current Request</a>
+                </li>
+            </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <img src="images/user.png" height="30"/>
+                        </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="profile.php">Profile</a>
+                                <a class="dropdown-item" href="logout.php">Logout</a>
+                            </div>
+                    </li>
+                    <button class="btn btn-outline-warning my-2 my-sm-0">
+                        <a href="logout.php" style="text-decoration: none; color:white;">Logout</a>
+                    </button>
+                </form>
         </div>
+    </nav>
         <!-- /navbar -->
         <div class="wrapper">
             <div class="container">
                 <div class="row">
-                    <div class="span3">
-                        <div class="sidebar">
-                            <ul class="widget widget-menu unstyled">
-                                <li class="active"><a href="index.php" style="background-color: #001f44;"><i class="menu-icon icon-home"></i>Home
-                                </a></li>
-                                 <li><a href="message.php"style="background-color: #001f44;"><i class="menu-icon icon-inbox"></i>Messages</a>
-                                </li>
-                                <li><a href="book.php"style="background-color: #001f44;"><i class="menu-icon icon-book"></i>All Books </a></li>
-                                <li><a href="addbook.php"style="background-color: #001f44;"><i class="menu-icon icon-edit"></i>Add Books </a></li>
-                                <li><a href="excelupload.php"style="background-color: #001f44;"><i class="menu-icon icon-edit"></i>Excel Upload</a></li>
-                                <li><a href="requests.php"style="background-color: #001f44;"><i class="menu-icon icon-tasks"></i>Issue/Return Requests </a></li>
-                                <li><a href="current.php"style="background-color: #001f44;"><i class="menu-icon icon-list"></i>Currently Issued Books </a></li>
-                            </ul>
-                            <ul class="widget widget-menu unstyled">
-                            <li><a href="logout.php"style="background-color: #fdbe33;"><i class="menu-icon icon-signout"></i>Logout </a></li>
-                            </ul>
-                        </div>
-                        <!--/.sidebar-->
-                    </div>
-                    <!--/.span3-->
-                    <!--/.span9-->
-                    <div class="span9">
-                    <div class="content">
+                    <br>
+    <div class="col-5 mx-auto">
+        <h5 class="card-header text-center">Add Book</h5>
+        <form action="addbook.php" method="post" enctype="multipart/form-data"><br>
+            <div class="form-group">
+                <label for="Kode"><b>Kode Pelaksana</b></label>
+                <input class="form-control" type="text" id="Kode" name="Kode" placeholder="Kode Pelaksana" required>
+            </div>
+            <div class="form-group">
+                <label for="Indeks"><b>Indeks</b></label>
+                <input class="form-control" type="text" id="Indeks" name="Indeks" placeholder="Indeks" required>
+            </div>
+            <div class="form-group">
+                <label for="Klasifikasi"><b>Klasifikasi</b></label>
+                    <input class="form-control" type="text" id="Klasifikasi" name="Klasifikasi" placeholder="Klasifikasi" required>
+            </div>
+            <div class="form-group">
+                <label for="Unit"><b>Unit Kerja</b></label>
+                    <input class="form-control" type="text" id="Unit" name="Unit" placeholder="Unit Kerja" required>
+            </div>
+            <div class="form-group">
+                <label for="Uraian"><b>Uraian</b></label>
+                    <input class="form-control" type="text" id="Uraian" name="Uraian" placeholder="Uraian" required>
+            </div>
+            <div class="form-group">
+                <label for="Tahun"><b>Tahun</b></label>
+                    <input class="form-control" type="text" id="Tahun" name="Tahun" placeholder="Tahun" required>
+            </div>
+            <div class="form-group">
+                <label for="Tp"><b>Tingkat Perkembangan</b></label>
+                    <input class="form-control" type="text" id="Tp" name="Tp" placeholder="Tingkat Perkembangan" required>
+            </div>
+            <div class="form-group">
+                <label for="Media"><b>Media</b></label>
+                    <input class="form-control" type="text" id="Media" name="Media" placeholder="Media" required>
+            </div>
+            <div class="form-group">
+                <label for="Kondisi"><b>Kondisi</b></label>
+                    <input class="form-control" type="text" id="Kondisi" name="Kondisi" placeholder="Kondisi" required>
+            </div>
+            <div class="form-group">
+                <label for="Jumlah"><b>Jumlah</b></label>
+                    <input class="form-control" type="text" id="Jumlah" name="Jumlah" placeholder="Jumlah" required>
+            </div>
+            <div class="form-group">
+                <label for="Lokasi"><b>Lokasi</b></label>
+                    <input class="form-control" type="text" id="Lokasi" name="Lokasi" placeholder="Lokasi"  required>
+            </div>
+            <div class="form-group">
+                <label for="myfile"><b>File Buku</b></label>
+                <div class="form-control">
+                    <input type="file" name="myfile" id="myfile" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Retensi"><b>Retensi</b></label>
+                    <input class="form-control" type="text" id="Retensi" name="Retensi" placeholder="Retensi" required>
+            </div>
+            <div class="form-group">
+                <label for="ARetensi"><b>Akhir Retensi</b></label>
+                    <input class="form-control" type="text" id="ARetensi" name="ARetensi" placeholder="Akhir Retensi" required>
+            </div>
+            <div class="form-group">
+                <label for="Tgl"><b>Tanggal Deskripsi</b></label>
+                    <input class="form-control" type="text" id="Tgl" name="Tgl" placeholder="Tanggal Deskripsi"  required>
+            </div>
+            
 
-                        <div class="module">
-                            <div class="module-head">
-                                <h3>Add Book</h3>
-                            </div>
-                            <div class="module-body">
-
-                                    
-                                    <br >
-
-                                    <form class="form-horizontal row-fluid" action="addbook.php" method="post" enctype="multipart/form-data">
-                                        <div class="control-group">
-                                            <label class="control-label" for="Kode"><b>Kode Pelaksana</b></label>
-                                            <div class="controls">
-                                                <input type="text" id="Kode" name="Kode" placeholder="Kode Pelaksana" class="span8" required>
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            
-                                            <label class="control-label" for="Indeks"><b>Indeks</b></label>
-                                            <div class="controls">
-                                                <input type="text" id="Indeks" name="Indeks" placeholder="Indeks" class="span8" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="control-group">
-                                            
-                                            <label class="control-label" for="Klasifikasi"><b>Klasifikasi</b></label>
-                                            <div class="controls">
-                                                <input type="text" id="Klasifikasi" name="Klasifikasi" placeholder="Klasifikasi" class="span8" required>
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="Unit"><b>Unit Kerja</b></label>
-                                            <div class="controls">
-                                                <input type="text" id="Unit" name="Unit" placeholder="Unit Kerja" class="span8" required>
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="Uraian"><b>Uraian</b></label>
-                                            <div class="controls">
-                                                <input type="text" id="Uraian" name="Uraian" placeholder="Uraian" class="span8" required>
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="Tahun"><b>Tahun</b></label>
-                                            <div class="controls">
-                                                <input type="text" id="Tahun" name="Tahun" placeholder="Tahun" class="span8" required>
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="Tp"><b>Tingkat Perkembangan</b></label>
-                                            <div class="controls">
-                                                <input type="text" id="Tp" name="Tp" placeholder="Tingkat Perkembangan" class="span8" required>
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="Media"><b>Media</b></label>
-                                            <div class="controls">
-                                                <input type="text" id="Media" name="Media" placeholder="Media" class="span8" required>
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="Kondisi"><b>Kondisi</b></label>
-                                            <div class="controls">
-                                                <input type="text" id="Kondisi" name="Kondisi" placeholder="Kondisi" class="span8" required>
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="Jumlah"><b>Jumlah</b></label>
-                                            <div class="controls">
-                                                <input type="text" id="Jumlah" name="Jumlah" placeholder="Jumlah" class="span8" required>
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="Lokasi"><b>Lokasi</b></label>
-                                            <div class="controls">
-                                                <input type="text" id="Lokasi" name="Lokasi" placeholder="Lokasi" class="span8" required>
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="myfile"><b>File Buku</b></label>
-                                            <div class="controls">
-                                                <input type="file" name="myfile" id="myfile" required>
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="Retensi"><b>Retensi</b></label>
-                                            <div class="controls">
-                                                <input type="text" id="Retensi" name="Retensi" placeholder="Retensi" class="span8" required>
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="ARetensi"><b>Akhir Retensi</b></label>
-                                            <div class="controls">
-                                                <input type="text" id="ARetensi" name="ARetensi" placeholder="Akhir Retensi" class="span8" required>
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <label class="control-label" for="Tgl"><b>Tanggal Deskripsi</b></label>
-                                            <div class="controls">
-                                                <input type="text" id="Tgl" name="Tgl" placeholder="Tanggal Deskripsi" class="span8" required>
-                                            </div>
-                                        </div>
-                                        
-
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <button type="submit" name="submit" class="btn">Add Book</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                            </div>
-                        </div>
-
-                        
-                        
-                    </div><!--/.content-->
+            <div class="form-group">
+                    <button type="submit" name="submit" class="btn btn-primary">Add Book</button>
+            </div>
+        </form>
+        </div>
+    <br>
+                    
                 </div>
 
                 </div>
@@ -199,22 +157,24 @@ if ($_SESSION['Username']) {
             <!--/.container-->
 
         </div>
+<!-- Footer -->
+<footer class="page-footer font-small blue">
 
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3" style="background-color: #001f44; color:white;">
+    <b class="copyright">&copy; 2021 PT Jasamarga Tollroad Maintenance </b>All rights reserved.
+</div>
+<!-- Copyright -->
 
-<div class="footer">
-            <div class="container">
-                <b class="copyright">&copy; 2021 PT Jasamarga Tollroad Maintenance </b>All rights reserved.
-            </div>
-        </div>
+</footer>
+<!-- Footer -->
         
         <!--/.wrapper-->
-        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.js" type="text/javascript"></script>
-        <script src="scripts/flot/jquery.flot.resize.js" type="text/javascript"></script>
-        <script src="scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
-        <script src="scripts/common.js" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+        <script src="scripts/common.js"></script>
 
 <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
