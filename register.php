@@ -70,7 +70,7 @@ require('dbconn.php');
 							</div>
                             <button class="btn btn-lg btn-primary btn-block" name="signup" type="submit">Sign Up</button><br><div class="clear"></div>
 							<div class="d-flex align-items-center justify-content-center pb-4">
-								<p class="mb-0 me-2">Already have an account?</p>
+								<p class="mb-0 me-2 mr-1">Already have an account? </p>
 								<a href="index.php">Login here</a>
 							</div>
 							<p class="mt-5 mb-3 text-muted">&copy; 2021 PT Jasa Marga Tollroad Maintenance. All Rights Reserved</p>

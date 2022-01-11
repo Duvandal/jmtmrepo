@@ -16,6 +16,7 @@ if ($_SESSION['Username']) {
 
     <!-- Asset -->
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
 
 	<!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
@@ -119,7 +120,7 @@ if ($_SESSION['Username']) {
                                     <div class="form-group">
                                         <label for="Divisi"><b>Divisi:</b></label>
                                             <select name="Divisi" id="Divisi" class="form-control">
-                                                <option>--Pilih Divisi--</option>
+                                                <option selected disabled>--Pilih Divisi--</option>
                                                 <option value="FTA">Finance</option>
                                                 <option value="LOG">Logistik</option>
                                                 <option value="HCGA">Human Capital</option>
