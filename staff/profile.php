@@ -69,25 +69,20 @@ if ($_SESSION['Username']) {
         <!-- /navbar -->
     <br>
     <div class="container rounded bg-white mt-5 mb-5 border">
-        <div class="row">
+    <div class="row">
         
-            <?php
-                $username = $_SESSION['Username'];
-                $sql="select * from repo.user where Username='$username'";
-                $result=$conn->query($sql);
-                $row=$result->fetch_assoc();
-
-                $name=$row['Name'];
-                $pswd=$row['Password'];
-                $divisi=$row['Divisi'];
-                $kategori=$row['Category'];
-                ?>    
+    <?php
+                                $username = $_SESSION['Username'];
+                                $sql="select * from repo.user where Username='$username'";
+                                $result=$conn->query($sql);
+                                $row=$result->fetch_assoc();
+                                ?>    
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                 <img class="rounded-circle mt-5" width="100px" src="images/user.png">
-                <span class="font-weight-bold"><?php echo $name?></span>
-                <span class="text-black-50"><?php echo $kategori?></span>
-                <span class="text-black-50"><?php echo $divisi?></span>
+                <span class="font-weight-bold"><?php echo htmlspecialchars($name=$row['Name'])?></span>
+                <span class="text-black-50"><?php echo htmlspecialchars($divisi=$row['Divisi'])?></span>
+                <span class="text-black-50"><?php echo htmlspecialchars($kategori=$row['Category'])?></span>
             </div>
         </div>
         <div class="col-md-7">
@@ -96,32 +91,39 @@ if ($_SESSION['Username']) {
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
                 <div class="module">
-                    <div class="module-body">
-                        <form class="form-horizontal row-fluid" action="profile.php?id=<?php echo $username ?>" method="post">
-                            <div class="form-group">
-                                <label for="Name"><b>Name:</b></label>
-                                    <input type="text" id="Name" name="Name" value= "<?php echo $name?>" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="Password"><b>New Password:</b></label>
-                                    <input type="password" id="Password" name="Password"  value= "<?php echo $pswd?>" class="form-control" required>
-                            </div>   
-                            <div class="form-group">
-                                <label for="Divisi"><b>Divisi:</b></label>
-                                    <select name="Divisi" id="Divisi" class="form-control">
-                                        <option>--Pilih Divisi--</option>
-                                        <option value="FTA">Finance</option>
-                                        <option value="LOG">Logistik</option>
-                                        <option value="HCGA">Human Capital</option>
-                                    </select>
-                            </div>   
-                            <div class="form-group">
-                                <button type="submit" name="submit"class="btn-primary"><center>Update Details</center></button>
-                            </div>                                                                     
+                            <div class="module-body">
+                                <form class="form-horizontal row-fluid" action="profile.php?id=<?php echo htmlspecialchars($_SESSION['Username']) ?>" method="post">
 
-                        </form> 
-                    </div>
-                </div>  
+                                    <div class="form-group">
+                                        <label for="Name"><b>Name:</b></label>
+                                            <input type="text" id="Name" name="Name" value= "<?php echo htmlspecialchars($name=$row['Name'])?>" class="form-control" required>
+                                        
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="Password"><b>New Password:</b></label>
+                                            <input type="password" id="Password" name="Password"  value= "<?php echo htmlspecialchars($pswd=$row['Password'])?>" class="form-control" required>
+                                        
+                                    </div>   
+
+                                    <div class="form-group">
+                                        <label for="Divisi"><b>Divisi:</b></label>
+                                            <select name="Divisi" id="Divisi" class="form-control">
+                                                <option selected disabled>--Pilih Divisi--</option>
+                                                <option value="FTA">Finance</option>
+                                                <option value="LOG">Logistik</option>
+                                                <option value="HCGA">Human Capital</option>
+                                            </select>
+                                    </div>   
+
+                                    <div class="form-group">
+                                                <button type="submit" name="submit"class="btn-primary"><center>Update Details</center></button>
+                                        </div>                                                                     
+
+                                </form>
+                                       
+                        </div>
+                        </div>  
             </div>
         </div>
     </div>
