@@ -11,6 +11,8 @@ require('dbconn.php');
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- Style -->
+	<link rel="shortcut icon" href="logo.png" type="image/x-icon">
+
 	<!-- <link rel="stylesheet" href="style.css"> -->
 
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
