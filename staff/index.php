@@ -37,7 +37,7 @@ if ($_SESSION['Username']) {
                     <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="message.php">Messages</a>
+                    <a class="nav-link" href="message.php">Messages <span class="badge bg-secondary">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="book.php">All Book</a>

@@ -38,7 +38,7 @@ if ($_SESSION['Username']) {
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="message.php">Messages</a>
+                    <a class="nav-link" href="message.php">Messages <span class="badge bg-secondary">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="book.php">All Book <span class="sr-only">(current)</span></a>
@@ -95,7 +95,6 @@ if ($_SESSION['Username']) {
                         <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%;">
                                   <thead>
                                     <tr>
-                                        <th></th>
                                         <th>Kode Pelaksana</th>
                                         <th>Indeks</th>
                                         <th>Klasifikasi</th>
@@ -186,7 +185,6 @@ if ($_SESSION['Username']) {
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
 <script src="scripts/common.js"></script>
       
     </body>

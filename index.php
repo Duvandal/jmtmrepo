@@ -61,8 +61,8 @@ require('dbconn.php');
 
 <?php
 if(isset($_POST['signin']))
-{$u=$_POST['Username'];
- $p=$_POST['Password'];
+{$u=mysqli_real_escape_string($conn,$_POST['Username']);
+ $p=mysqli_real_escape_string($conn,$_POST['Password']);
 
  $sql="select * from repo.user where Username='$u'";
 
