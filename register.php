@@ -95,6 +95,7 @@ if(isset($_POST['signup']))
 
 	if ($conn->query($sql) === TRUE) {
 echo "<script type='text/javascript'>alert('Registration Successful')</script>";
+header("location: index.php"); 
 } else {
     //echo "Error: " . $sql . "<br>" . $conn->error;
 echo "<script type='text/javascript'>alert('User Exists')</script>";
