@@ -91,8 +91,7 @@ if(isset($_POST['signup']))
 	$divisi=$_POST['Divisi'];
 	$username=$_POST['Username'];
 
-	$passwordhash=sha1($password);
-	$sql="insert into repo.user (Name,Category,Username,Divisi,Password) values ('$name','$category','$username','$divisi','$passwordhash')";
+	$sql="insert into repo.user (Name,Category,Username,Divisi,Password) values ('$name','$category','$username','$divisi','$password')";
 
 	if ($conn->query($sql) === TRUE) {
 echo "<script type='text/javascript'>alert('Registration Successful')</script>";

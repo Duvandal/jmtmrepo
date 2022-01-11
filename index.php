@@ -62,9 +62,6 @@ require('dbconn.php');
 if(isset($_POST['signin']))
 {$u=$_POST['Username'];
  $p=$_POST['Password'];
- $c=$_POST['Category'];
- $hash_password = sha1($p);
- 
 
  $sql="select * from repo.user where Username='$u'";
 
