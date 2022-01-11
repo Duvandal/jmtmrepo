@@ -133,6 +133,7 @@ if ($_SESSION['Username']) {
                             
                             ?>
                                 <tr>
+                                    <td></td>
                                     <td><?php echo $kode ?></td>
                                     <td><?php echo $indeks ?></td>
                                     <td><?php echo $klasifikasi ?></td>

@@ -129,7 +129,6 @@ if ($_SESSION['Username']) {
                                 $tgl=$row['TglDesk'];
                             ?>
                                     <tr>
-                                    <td></td>
                                     <td><?php echo $kode ?></td>
                                     <td><?php echo $indeks ?></td>
                                     <td><?php echo $klasifikasi ?></td>
