@@ -98,7 +98,6 @@ if ($_SESSION['Username']) {
                         <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                             <tr>
-                                <th></th>
                                 <th>Kode Pelaksana</th>
                                 <th>Indeks</th>
                                 <th>Klasifikasi</th>
@@ -134,7 +133,6 @@ if ($_SESSION['Username']) {
                             
                             ?>
                                 <tr>
-                                    <td></td>
                                     <td><?php echo $kode ?></td>
                                     <td><?php echo $indeks ?></td>
                                     <td><?php echo $klasifikasi ?></td>
