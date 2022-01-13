@@ -53,6 +53,7 @@ if (isset($_POST['submit'])) {
             values('$kp','$indeks','$kk','$uk','$prh','$thn','$tp','$m','$k','$j','$loc','$l','$r','$ar','$td')";
 
             mysqli_query($conn,$sql1);
+            set_time_limit(500);
             $jumlahData++;
         }
         if ($jumlahData>0) {

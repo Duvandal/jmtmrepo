@@ -93,7 +93,7 @@ if ($_SESSION['Username']) {
                     else
                     {
                     ?>
-                    <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
+                    <table id="dtBasicExample" class="table table-striped table-bordered">
                         <thead>
                         <tr>
                             <th>Kode Pelaksana</th>
