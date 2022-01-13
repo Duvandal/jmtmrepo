@@ -132,7 +132,7 @@ if ($_SESSION['Username']) {
             <!--/.container-->
         </div>
         <!-- Footer -->
-    <footer class="page-footer font-small blue fixed-bottom">
+        <footer class="page-footer font-small blue">
 
 <!-- Copyright -->
 <div class="footer-copyright text-center py-3" style="background-color: #001f44; color:white;">

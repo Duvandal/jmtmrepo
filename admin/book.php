@@ -18,7 +18,7 @@ if ($_SESSION['Username']) {
     <link rel="stylesheet" href="css/style.css">
 
 	<!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css"> -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
@@ -98,6 +98,7 @@ if ($_SESSION['Username']) {
                         <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                             <tr>
+                                
                                 <th>Kode Pelaksana</th>
                                 <th>Indeks</th>
                                 <th>Klasifikasi</th>
@@ -156,7 +157,7 @@ if ($_SESSION['Username']) {
             <!--/.container-->
         </div> <br>
         <!-- Footer -->
-    <footer class="page-footer font-small blue">
+<footer class="page-footer font-small blue">
 
 <!-- Copyright -->
 <div class="footer-copyright text-center py-3" style="background-color: #001f44; color:white;">
@@ -172,7 +173,7 @@ if ($_SESSION['Username']) {
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
+        <!-- <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script> -->
         <script src="scripts/common.js"></script>
       
     </body>
