@@ -143,7 +143,8 @@ if ($_SESSION['Username']) {
                                     <td><?php echo $lokasi ?></td>
                                     <td><b><?php echo $avail ?></b></td>
                                     <td>
-                                        <a href="bookdetails.php?id=<?php echo $kode; ?>" class="btn btn-primary">Details</a>
+                                        <a href="bookdetails.php?id=<?php echo $kode ?>" class="btn btn-primary">Details</a>
+                                        <!-- <a href="delete.php?id=<?php echo $kode ?>" class="btn btn-danger">Delete</a> -->
                                     </td>
                                 </tr>
                                 <?php }} ?>

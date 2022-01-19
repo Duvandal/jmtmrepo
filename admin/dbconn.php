@@ -3,8 +3,9 @@ session_start();
 $dbservername = "localhost";
 $dbusername = "root";
 $dbpassword = "";
+$db="repo";
 // Create connection
-$conn = mysqli_connect($dbservername, $dbusername, $dbpassword);
+$conn = mysqli_connect($dbservername, $dbusername, $dbpassword,$db);
 // Check connection
 if (!$conn) {
     echo "Connected unsuccessfully";

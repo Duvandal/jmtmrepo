@@ -88,24 +88,6 @@ else
 
 }
 
-if(isset($_POST['signup']))
-{
-	$name=$_POST['Name'];
-	$password=$_POST['Password'];
-	$category=$_POST['Category'];
-	$divisi=$_POST['Divisi'];
-	$username=$_POST['Username'];
-
-	$sql="insert into repo.user (Name,Category,Username,Divisi,Password) values ('$name','$category','$username','$divisi','$password')";
-
-	if ($conn->query($sql) === TRUE) {
-echo "<script type='text/javascript'>alert('Registration Successful')</script>";
-} else {
-    //echo "Error: " . $sql . "<br>" . $conn->error;
-echo "<script type='text/javascript'>alert('User Exists')</script>";
-}
-}
-
 ?>
 
 </body>
