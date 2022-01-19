@@ -102,7 +102,7 @@ if ($_SESSION['Username']) {
                                         <th>Tahun</th>
                                         <th>Lokasi</th>
                                         <th>Jumlah</th>
-                                        <th></th>
+                                        <th>Action</th>
                                     </tr>
                                   </thead>
                                   <tbody>
