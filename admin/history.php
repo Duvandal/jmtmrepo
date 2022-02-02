@@ -8,7 +8,6 @@ if ($_SESSION['Username']) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
@@ -19,6 +18,7 @@ if ($_SESSION['Username']) {
     <link rel="stylesheet" href="css/style.css">
 
 	<!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css"> -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
@@ -35,13 +35,13 @@ if ($_SESSION['Username']) {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href="index.php">Home </a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="message.php">Messages<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="book.php">All Book</a>
+                    <a class="nav-link" href="message.php">Messages</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="book.php">All Book <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="addbook.php">Add Book</a>
@@ -56,7 +56,7 @@ if ($_SESSION['Username']) {
                     <a class="nav-link" href="current.php">Current Request</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="history.php">History</a>
+                    <a class="nav-link" href="history.php">History <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -77,59 +77,81 @@ if ($_SESSION['Username']) {
     </nav>
         <!-- /navbar -->
         <br>
-    <div class="col-5 mx-auto">
-        <h5 class="card-header text-center">Send a Message</h5>
-        <form action="message.php" method="post"><br>
-                <div class="form-group">
-                    <label for="Penerima">Receiver</label>
-                    <input type="text" name="user" class="form-control" id="Penerima" placeholder="Nama Penerima" required>
+        <div class="wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="span9 mx-auto">
+                        <?php
+                        $sql="select * from repo.record";
+
+                        $result=$conn->query($sql);
+                        $rowcount=mysqli_num_rows($result);
+
+                        if(!($rowcount))
+                            echo "<br><center><h2><b><i>No Results</i></b></h2></center>";
+                        else
+                        {
+                        ?>
+                        <table id="dtBasicExample" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                            <tr>   
+                                <th>Izin Pinjam</th>
+                                <th>Kode Pelaksana</th>
+                                <th>Issue Date</th>
+                                <th>Due date</th>
+                                <th>Dues</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            
+                            //$result=$conn->query($sql);
+                            while($row=$result->fetch_assoc())
+                            {
+                                $username=$row['Username'];
+                                $kode=$row['KodePelaksana'];
+                                $issuedate=$row['Date_of_Issue'];
+                                $duedate=$row['Due_Date'];
+                                $due=$row['Dues'];
+                            
+                            ?>
+                                <tr>
+                                    <td><?php echo strtoupper($username) ?></td>
+                                    <td><?php echo $kode ?></td>
+                                    <td><?php echo $issuedate ?></td>
+                                    <td><?php echo $duedate ?></td>
+                                    <td><?php echo $due ?></td>
+                                </tr>
+                                <?php }} ?>
+                            </tbody>
+                            
+                        </table>
+                    </div>
+                    <!--/.span9-->
                 </div>
-                <div class="form-group">
-                    <label for="Pesan">Message</label>
-                    <input type="text" name="msg" class="form-control" id="Pesan" placeholder="Isi Pesan" required>
-                </div>
-                
-                <button type="submit" name="submit" class="btn btn-success">Send Message</button>
-            </form>
-        </div>
-    <br>
+            </div>
+            <!--/.container-->
+        </div> <br>
         <!-- Footer -->
-    <footer class="page-footer font-small blue fixed-bottom">
+<footer class="page-footer font-small blue">
 
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3" style="background-color: #001f44; color:white;">
-            <b class="copyright">&copy; 2021 PT Jasamarga Tollroad Maintenance </b>All rights reserved.
-        </div>
-        <!-- Copyright -->
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3" style="background-color: #001f44; color:white;">
+    <b class="copyright">&copy; 2021 PT Jasamarga Tollroad Maintenance </b>All rights reserved.
+</div>
+<!-- Copyright -->
 
-    </footer>
-    <!-- Footer -->
+</footer>
+<!-- Footer -->
         
         <!--/.wrapper-->
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+        <!-- <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script> -->
         <script src="scripts/common.js"></script>
-
-<?php
-if(isset($_POST['submit']))
-{
-    $username=$_POST['user'];
-    $message=$_POST['msg'];
-
-$sql1="insert into repo.message (Username,Msg,Date,Time) values ('$username','$message',curdate(),curtime())";
-
-if($conn->query($sql1) === TRUE){
-echo "<script type='text/javascript'>alert('Success')</script>";
-}
-else
-{//echo $conn->error;
-echo "<script type='text/javascript'>alert('Error')</script>";
-}
-    
-}
-?>
+      
     </body>
 
 </html>
