@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2021 at 11:55 AM
+-- Generation Time: Feb 02, 2022 at 03:45 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -33,6 +33,8 @@ CREATE TABLE `buku` (
   `Indeks` varchar(255) DEFAULT NULL,
   `Klasifikasi` varchar(255) DEFAULT NULL,
   `Unit` varchar(255) DEFAULT NULL,
+  `Dari` varchar(255) DEFAULT NULL,
+  `Kepada` varchar(255) DEFAULT NULL,
   `Perihal` varchar(255) DEFAULT NULL,
   `Tahun` varchar(255) DEFAULT NULL,
   `TingkatPerkembangan` varchar(255) DEFAULT NULL,

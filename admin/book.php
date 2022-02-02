@@ -103,6 +103,8 @@ if ($_SESSION['Username']) {
                                 <th>Indeks</th>
                                 <th>Klasifikasi</th>
                                 <th>Unit Kerja</th>
+                                <th>Dari</th>
+                                <th>Kepada</th>
                                 <th>Uraian</th>
                                 <th>Tahun</th>
                                 <th>Lokasi</th>
@@ -123,6 +125,8 @@ if ($_SESSION['Username']) {
                                 $lokasi=$row['Lokasi'];
                                 $avail=$row['Jumlah'];
                                 $unit=$row['Unit'];
+                                $dari=$row['Dari'];
+                                $kpd=$row['Kepada'];
                                 $thn=$row['Tahun'];
                                 $tp=$row['TingkatPerkembangan'];
                                 $media=$row['Media'];
@@ -138,6 +142,8 @@ if ($_SESSION['Username']) {
                                     <td><?php echo $indeks ?></td>
                                     <td><?php echo $klasifikasi ?></td>
                                     <td><?php echo $unit ?></td>
+                                    <td><?php echo $dari ?></td>
+                                    <td><?php echo $kpd ?></td>
                                     <td><?php echo $perihal ?></td>
                                     <td><?php echo $thn ?></td>
                                     <td><?php echo $lokasi ?></td>
