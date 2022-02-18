@@ -65,8 +65,7 @@ require('dbconn.php');
 							</select>
                             </div>
 							<div class="form-group">
-								<select name="Category" id="Category">
-									<option value="ADM">Admin</option>
+								<select name="Category" id="Category">\
 									<option value="ST">Staff</option>
 								</select>
 							</div>

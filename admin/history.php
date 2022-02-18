@@ -40,8 +40,8 @@ if ($_SESSION['Username']) {
                 <li class="nav-item">
                     <a class="nav-link" href="message.php">Messages</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="book.php">All Book <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="book.php">All Book</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="addbook.php">Add Book</a>
@@ -55,7 +55,7 @@ if ($_SESSION['Username']) {
                 <li class="nav-item">
                     <a class="nav-link" href="current.php">Current Request</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="history.php">History <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
