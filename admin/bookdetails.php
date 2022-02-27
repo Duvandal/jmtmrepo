@@ -101,8 +101,6 @@ if ($_SESSION['Username']) {
                             $lokasi=$row['Lokasi'];
                             $avail=$row['Jumlah'];
                             $unit=$row['Unit'];
-                            $dari=$row['Dari'];
-                            $kpd=$row['Kepada'];
                             $thn=$row['Tahun'];
                             $tp=$row['TingkatPerkembangan'];
                             $media=$row['Media'];
@@ -117,8 +115,6 @@ if ($_SESSION['Username']) {
                             echo "<b>Indeks:</b> ".$indeks."<br><br>";
                             echo "<b>Klasifikasi:</b> ".$klasifikasi."<br><br>";
                             echo "<b>Unit Kerja:</b> ".$unit."<br><br>";
-                            echo "<b>Dari:</b> ".$dari."<br><br>";
-                            echo "<b>Kepada:</b> ".$kpd."<br><br>";
                             echo "<b>Perihal:</b> ".$perihal."<br><br>";
                             echo "<b>Tahun:</b> ".$thn."<br><br>";
                             echo "<b>Tingkat Perkembangan:</b> ".$tp."<br><br>";
