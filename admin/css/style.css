@@ -74,7 +74,12 @@ div.dataTables_scrollFoot table {
 	border-top: none;
 }
 
-
+.text-wrap{
+    white-space:normal;
+}
+.width-200{
+    width:200px;
+}
 
 
 /*

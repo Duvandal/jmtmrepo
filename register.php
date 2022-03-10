@@ -61,7 +61,8 @@ require('dbconn.php');
 							<select name="Divisi" id="Divisi">
 								<option value="FTA">Finance</option>
 								<option value="LOG">Logistik</option>
-								<option value="HCGA">Human Capital</option>
+								<option value="HC">Human Capital</option>
+								<option value="GA">General Affair</option>
 							</select>
                             </div>
 							<div class="form-group">
